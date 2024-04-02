@@ -1,0 +1,157 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(ShoppingCartApp());
+}
+
+class ShoppingCartApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Cart"),
+          centerTitle: true,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              // Implement your navigation logic here
+            },
+          ),
+        ),
+        body: ShoppingCart(),
+      ),
+    );
+  }
+}
+
+class ShoppingCart extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const SizedBox(height: 20),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.shopping_cart),
+                  SizedBox(width: 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Shopping Cart",
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Text("Verify your quantity and click checkout"),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.grey,
+                // Placeholder for image
+              ),
+              const SizedBox(width: 10),
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Calas", style: TextStyle(fontSize: 18)),
+                    Text("\$15.00"),
+                  ],
+                ),
+              ),
+              Row(
+                children: [
+                  IconButton(icon: const Icon(Icons.add), onPressed: () {}),
+                  const Text("10"),
+                  IconButton(icon: const Icon(Icons.remove), onPressed: () {}),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              Container(
+                width: 50,
+                height: 50,
+                color: Colors.grey,
+                // Placeholder for image
+              ),
+              const SizedBox(width: 10),
+              const Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Angel Hair", style: TextStyle(fontSize: 18)),
+                    Text("Salmon, Mozzarella \$15.00"),
+                  ],
+                ),
+              ),
+              Row(
+                children: [
+                  IconButton(icon:const  Icon(Icons.add), onPressed: () {}),
+                  const Text("2.0"),
+                  IconButton(icon: Icon(Icons.remove), onPressed: () {}),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Subtotal"),
+                  Text("Tax (10.0%)"),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [Text("\$60.98"),
+                  Text("\$6.1"),
+                ],
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 20),
+        Container(
+          width: double.infinity,
+          padding:const EdgeInsets.symmetric(horizontal: 20),
+          child: ElevatedButton(
+            onPressed: () {
+              // Implement your checkout logic here
+            },
+            child: const Text("Check Out \$5"),
+          ),
+        ),
+      ],
+    );
+  }
+}

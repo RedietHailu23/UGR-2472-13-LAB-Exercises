@@ -1,0 +1,180 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(BMICalculatorApp());
+}
+
+class BMICalculatorApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.lightBlue,
+          title: const Center(
+            child: Text(
+              'BMI CALCULATOR',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+        body: BMICalculator(),
+        bottomNavigationBar: BottomAppBar(
+          color: Colors.purple,
+          child: Container(
+            height: 50.0,
+            child:const Center(
+              child: Text(
+                'Calculate',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BMICalculator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.lightBlue,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
+                color: Colors.black,
+                child:const Column(
+                  children: [
+                    Icon(
+                      Icons.male,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      'Male',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
+                color: Colors.black,
+                child: const Column(
+                  children: [
+                    Icon(
+                      Icons.female,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      'Female',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+          Container(
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
+            color: Colors.black,
+            child: const Column(
+              children: [
+                Text(
+                  'Height',
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  '176 cm',
+                  style: TextStyle(color: Colors.white),
+                ),
+                Icon(
+                  Icons.trending_up,
+                  size: 50,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                padding:const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
+                color: Colors.black,
+                child:const Column(
+                  children: [
+                    Text(
+                      'Weight',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      '60',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.remove,
+                          color: Colors.white,
+                        ),
+                        Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                    ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
+                color: Colors.black,
+                child: const Column(
+                  children: [
+                    Text(
+                      'Age',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      '23',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.remove,
+                          color: Colors.white,
+                        ),
+                        Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
