@@ -1,0 +1,22 @@
+fun main() {
+    val inputString = "Hello World! This is a Test String for Analysis."
+    val analysisResult = analyzeString(inputString)
+    println("Analysis Result:")
+    println("Number of words: ${analysisResult.numberOfWords}")
+    println("Number of uppercase letters: ${analysisResult.numberOfUppercaseLetters}")
+    println("Number of vowels: ${analysisResult.numberOfVowels}")
+}
+
+data class AnalysisResult(
+    val numberOfWords: Int,
+    val numberOfUppercaseLetters: Int,
+    val numberOfVowels: Int
+)
+
+fun analyzeString(input: String): AnalysisResult {
+    val words = input.split("\\s+".toRegex())
+    val numberOfWords = words.size
+    val numberOfUppercaseLetters = input.count { it.isUpperCase() }
+    val numberOfVowels = input.count { it.lowercaseChar() in setOf('a', 'e', 'i', 'o', 'u') }
+    return AnalysisResult(numberOfWords, numberOfUppercaseLetters, numberOfVowels)
+}
